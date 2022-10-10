@@ -1,4 +1,4 @@
-ublic class Pawn {
+public class Pawn {
 
     /**
      * Constructor.
