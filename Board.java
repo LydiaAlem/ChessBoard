@@ -58,8 +58,9 @@ public class Board {
             return true;
 
     }
-        return false;
-}
+        else {return false;
+        }
+    }
     
 
     //TODO:
@@ -87,12 +88,20 @@ public class Board {
     // - Player's color and color of 'start' Piece match.
     // - Destination contains either no Piece or a Piece of the opposite color.
     public boolean verifySourceAndDestination(int startRow, int startCol, int endRow, int endCol, boolean isBlack) {
+        
         if(board[startRow][startCol].isMoveLegal(this, endRow, endCol)){
             //how do i place 'start' and 'end' fall within the array's bounds
         }
         else{
             return false;
         }
+
+
+
+
+
+
+        return false;
     }
 
     //TODO:
@@ -135,53 +144,50 @@ public class Board {
         else {
             return false;
         }
+
+
     }
 
-    //TODO:
-    // Checks whether a given 'start' and 'end' position are a valid horizontal move.
-    // Returns a boolean to signify whether:
-    // - The entire move takes place on one row.
     // - All spaces directly between 'start' and 'end' are empty, i.e., null.
     public boolean verifyHorizontal(int startRow, int startCol, int endRow, int endCol) {
         for(int i = 0; i<= startRow.length; i++){
             for(int j= 0; j <= startCol.length; j++){
-                if((board[startRow][startCol + 1]).equals(board[endRow][endCol])|| (board[startRow][startCol -1].equals(board[endRow][endCol])){
+                if((board[startRow][startCol + 1]).equals(board[endRow][endCol])|| (board[startRow][startCol -1].equals(board[endRow][endCol]))){
                     return true;
                 }
-                //should i be incrementing startRow and startCol by 1 or by i??
+                else{ return false; }
+            }
+        }
+    }
 
-                else{
+
+    // - All spaces directly between 'start' and 'end' are empty, i.e., null.
+    public boolean verifyVertical(int startRow, int startCol, int endRow, int endCol) {
+        for(int i = 0; i<= startRow.length; i++){
+            for(int j= 0; j <= startCol.length; j++){
+                if((board[startRow + 1][startCol]).equals(board[endRow][endCol])|| (board[startRow + 1][startCol].equals(board[endRow][endCol]))){
+                    return true;
+                }
+                else{ return false; }
+            }
+        }
+        return false;
+    }
+
+    // - All spaces directly between 'start' and 'end' are empty, i.e., null.
+    public boolean verifyDiagonal(int startRow, int startCol, int endRow, int endCol) {
+        for(int i = 0; i<= startRow.length;i++){
+            for(int j= 0; j <= startCol.length; j++){
+                if((board[startRow + 1][startCol + 1]).equals(board[endRow][endCol])|| (board[startRow + 1][startCol + 1].equals(board[endRow][endCol]))){
+                    return true;
+                }
+                else {
                     return false;
                 }
             }
         }
-        return false;
     }
-
-    //TODO:
-    // Checks whether a given 'start' and 'end' position are a valid vertical move.
-    // Returns a boolean to signify whether:
-    // - The entire move takes place on one column.
-    // - All spaces directly between 'start' and 'end' are empty, i.e., null.
-    public boolean verifyVertical(int startRow, int startCol, int endRow, int endCol) {
-        for(int i = 0; i<= startRow.length; i++){
-            for(int j = 0; j <startCol.length; j++){
-                if //finish
-            }
-        }
-
-        return false;
-    }
-
-    //TODO:
-    // Checks whether a given 'start' and 'end' position are a valid diagonal move.
-    // Returns a boolean to signify whether:
-    // - The path from 'start' to 'end' is diagonal... change in row and col.
-    // - All spaces directly between 'start' and 'end' are empty, i.e., null.
-    public boolean verifyDiagonal(int startRow, int startCol, int endRow, int endCol) {
-        return false;
-    
-    }
-}
+        
+  }   
 }
 
