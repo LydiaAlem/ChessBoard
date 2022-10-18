@@ -33,9 +33,7 @@ public class Board {
 
     // Game functionality methods
 
-    //TODO:
-    // Moves a Piece object from one cell in the board to another, provided that
-    // this movement is legal. Returns a boolean to signify success or failure.
+    
     public boolean movePiece(int startRow, int startCol, int endRow, int endCol) {
         if (board[startRow][startCol].isMoveLegal(this, endRow, endCol)){
             return true;
@@ -43,9 +41,7 @@ public class Board {
         return false;
     }
 
-    //TODO:
-    // Determines whether the game has been ended, i.e., if one player's King
-    // has been captured.
+    
     public boolean isGameOver() {
 
         int counter = 0;
