@@ -87,20 +87,12 @@ public class Board {
     // - Player's color and color of 'start' Piece match.
     // - Destination contains either no Piece or a Piece of the opposite color.
     public boolean verifySourceAndDestination(int startRow, int startCol, int endRow, int endCol, boolean isBlack) {
-        
         if(board[startRow][startCol].isMoveLegal(this, endRow, endCol)){
             //how do i place 'start' and 'end' fall within the array's bounds
         }
         else{
             return false;
         }
-
-
-
-
-
-
-        return false;
     }
 
     //TODO:
@@ -143,8 +135,6 @@ public class Board {
         else {
             return false;
         }
-
-
     }
 
     //TODO:
@@ -176,10 +166,9 @@ public class Board {
     public boolean verifyVertical(int startRow, int startCol, int endRow, int endCol) {
         for(int i = 0; i<= startRow.length; i++){
             for(int j = 0; j <startCol.length; j++){
-                if
+                if //finish
             }
         }
-
 
         return false;
     }
