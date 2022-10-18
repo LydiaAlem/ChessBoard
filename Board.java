@@ -1,4 +1,4 @@
-ppublic class Board {
+public class Board {
 
     // Instance variables
     private Piece[][] board;
