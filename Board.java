@@ -11,7 +11,7 @@ public class Board {
     //TODO:
     // Construct an object of type Board using given arguments.
     public Board() {
-        this.board = new Piece[8][8];
+        this.board = new Piece[7][7];
         
     }
 
@@ -33,7 +33,9 @@ public class Board {
 
     // Game functionality methods
 
-    
+    //TODO:
+    // Moves a Piece object from one cell in the board to another, provided that
+    // this movement is legal. Returns a boolean to signify success or failure.
     public boolean movePiece(int startRow, int startCol, int endRow, int endCol) {
         if (board[startRow][startCol].isMoveLegal(this, endRow, endCol)){
             return true;
@@ -41,7 +43,9 @@ public class Board {
         return false;
     }
 
-    
+    //TODO:
+    // Determines whether the game has been ended, i.e., if one player's King
+    // has been captured.
     public boolean isGameOver() {
 
         int counter = 0;
@@ -84,7 +88,12 @@ public class Board {
     // - Destination contains either no Piece or a Piece of the opposite color.
     public boolean verifySourceAndDestination(int startRow, int startCol, int endRow, int endCol, boolean isBlack) {
         
-        
+        if(board[startRow][startCol].isMoveLegal(this, endRow, endCol)){
+            //how do i place 'start' and 'end' fall within the array's bounds
+        }
+        else{
+            return false;
+        }
 
 
 
@@ -97,7 +106,45 @@ public class Board {
     //TODO:
     // Check whether the 'start' position and 'end' position are adjacent to each other
     public boolean verifyAdjacent(int startRow, int startCol, int endRow, int endCol) {
-        return false;
+        //for loop -galaan o.
+        
+        if(board[startRow][startCol + 1].equals(board[endRow][endCol])){ //Check right
+            return true;
+        } 
+
+        else if(board[startRow + 1][startCol + 1].equals(board[endRow][endCol])){ //Checks bottom right corner
+            return true;
+        }
+
+        else if(board[startRow - 1][startCol].equals(board[endRow][endCol])) {//checks right
+            return true; 
+        }
+
+        else if(board[startRow -1][startCol -1].equals(board[endRow][endCol])){ //checks upper left corner
+            return true;
+        }
+
+        else if(board[startRow][startCol - 1].equals(board[endRow][endCol])){ //checks ABOVE pieve
+            return true;
+        }
+
+        else if(board[startRow-1][startCol+1].equals(board[endRow][endCol])){ //checks bottem left corner
+            return true;
+        }
+
+        else if(board[startRow+1][startCol - 1].equals(board[endRow][endCol])){ //checks upper right corner
+            return true;
+        }
+
+        else if(board[startRow +1][startCol].equals(board[endRow][endCol])){ //checks left
+            return true;
+        }
+
+        else {
+            return false;
+        }
+
+
     }
 
     //TODO:
@@ -106,6 +153,18 @@ public class Board {
     // - The entire move takes place on one row.
     // - All spaces directly between 'start' and 'end' are empty, i.e., null.
     public boolean verifyHorizontal(int startRow, int startCol, int endRow, int endCol) {
+        for(int i = 0; i<= startRow.length; i++){
+            for(int j= 0; j <= startCol.length; j++){
+                if((board[startRow][startCol + 1]).equals(board[endRow][endCol])|| (board[startRow][startCol -1].equals(board[endRow][endCol])){
+                    return true;
+                }
+                //should i be incrementing startRow and startCol by 1 or by i??
+
+                else{
+                    return false;
+                }
+            }
+        }
         return false;
     }
 
@@ -115,6 +174,13 @@ public class Board {
     // - The entire move takes place on one column.
     // - All spaces directly between 'start' and 'end' are empty, i.e., null.
     public boolean verifyVertical(int startRow, int startCol, int endRow, int endCol) {
+        for(int i = 0; i<= startRow.length; i++){
+            for(int j = 0; j <startCol.length; j++){
+                if
+            }
+        }
+
+
         return false;
     }
 
