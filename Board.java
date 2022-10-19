@@ -70,7 +70,7 @@ public class Board {
     public String toString() {
         String board_string= " 0 1 2 3 4 5 6 7 " + "\n";
         for(int i = 0; i <= 7; i++){
-            board_string += i.toString() + "|"; //the i.toString() converts the integer into a string
+            board_string += Integer.toString(i) + "|"; //the Integer.toString(i) converts the integer into a string
             for(int j = 0; i <= 7; j++){
                 board_string += board[i][j].getCharacter() + "|";
             }
