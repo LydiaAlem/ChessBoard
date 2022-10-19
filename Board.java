@@ -107,7 +107,7 @@ public class Board {
     //TODO:
     // Check whether the 'start' position and 'end' position are adjacent to each other
     public boolean verifyAdjacent(int startRow, int startCol, int endRow, int endCol) {
-        //for loop -galaan o.
+        //you can either choose to use a if-else statement or the switch statement!
         
         if(board[startRow][startCol + 1].equals(board[endRow][endCol])){ //Check right
             return true;
