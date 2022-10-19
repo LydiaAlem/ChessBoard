@@ -66,20 +66,30 @@ public class Board {
     //TODO:
     // Construct a String that represents the Board object's 2D array. Return
     // the fully constructed String.
+    //How do i do this???
     public String toString() {
-
-        return null;
+        String board_string= " 0 1 2 3 4 5 6 7 " + "\n";
+        for(int i = 0; i <= 7; i++){
+            board_string += String(i) + "|";
+            for(int j = 0; i <= 7; j++){
+                board_string += board[i][j].getCharacter() + "|";
+            }
+        
+        return board_string;
+        }
     }
 
-    //TODO:
-    // Sets every cell of the array to null. For debugging and grading purposes.
+
     public void clear() {
-        this.board[row][col] = null;
-
-    }
+        for(int i = 0; i<= board[row].length; i++){
+            for(int j = 0; j<= board[col].length; j++){
+                board[row][col]= null;
+            }
+        }
+    }}
 
     // Movement helper functions
-
+    
     //TODO:
     // Ensure that the player's chosen move is even remotely legal.
     // Returns a boolean to signify whether:
@@ -95,19 +105,12 @@ public class Board {
         else{
             return false;
         }
-
-
-
-
-
-
-        return false;
     }
 
     //TODO:
     // Check whether the 'start' position and 'end' position are adjacent to each other
     public boolean verifyAdjacent(int startRow, int startCol, int endRow, int endCol) {
-        //you can either choose to use a if-else statement or the switch statement!
+        //to help others use switch statement
         
         if(board[startRow][startCol + 1].equals(board[endRow][endCol])){ //Check right
             return true;
@@ -165,13 +168,12 @@ public class Board {
     public boolean verifyVertical(int startRow, int startCol, int endRow, int endCol) {
         for(int i = 0; i<= startRow.length; i++){
             for(int j= 0; j <= startCol.length; j++){
-                if((board[startRow + 1][startCol]).equals(board[endRow][endCol])|| (board[startRow + 1][startCol].equals(board[endRow][endCol]))){
+                if((board[startRow + 1][startCol]).equals(board[endRow][endCol]) || (board[startRow - 1][startCol].equals(board[endRow][endCol]))){
                     return true;
                 }
                 else{ return false; }
             }
         }
-        return false;
     }
 
     // - All spaces directly between 'start' and 'end' are empty, i.e., null.
@@ -184,10 +186,10 @@ public class Board {
                 else {
                     return false;
                 }
+                }
             }
         }
-    }
-        
-  }   
+    }     
 }
+
 
