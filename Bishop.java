@@ -1,36 +1,22 @@
-//NOT COMPLETED!!
 public class Bishop {
+    public class Bishop {
     //Instance variables
     private int row;
     private int col;
     private boolean isBlack;
 
+    //Constructur
     public Bishop(int row, int col, boolean isBlack){
         this.row = row;
         this.col = col;
         this.isBlack = isBlack;
     }
-
-  
-  //the reason why i am using the verifyAdjacent method from Board.java, is because the queen can only move diagonaly IF they are nothing on that square
+    //Begins by checking if the move is legal & if the endRow and endCol are being placed in a verified source
+    //Then return true if endCol and endRow are being moved DIAGONALLY
     public boolean isMoveLegal(Board board, int endRow, int endCol){
-        //Case 1: Move to the empty ADJACENT square
-        if(board.verifyAdjacent(this.row, this.col, endRow, endCol) && board.getPiece(endRow, endCol) == null){
-
+        if(board.verifySourceAndDestination(this.row, this.col, endRow, endCol, isBlack){
+            return(board.verifyDiagonal(this.row, this.col, endRow, endCol));
         }
-        //Case 2: Capture the piece
-        else if {
-          //Continue
-
-
-        }
-        //Case 3: Illegal Move
-        else { 
-          //Continue
-          
-        }
-        return isBlack;//Ignore for now
     }
     
 }
-
