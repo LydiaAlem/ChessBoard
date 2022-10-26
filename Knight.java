@@ -14,7 +14,7 @@ public class Knight {
     public boolean isMoveLegal(Board board, int endRow, int endCol){
         if(board.verifySourceAndDestination(this.row, this.col, endRow, endCol, this.isBlack)){
             if(((this.row + 2) == endRow ) && (this.col -1 == endCol)){
-                return true; //Checks bottom left
+                return true; //Checks BOTTOM left
             }
             if(((this.row + 1) == endRow && this.col -2 == endCol)){
                 return true; //Checks lower left
@@ -23,17 +23,19 @@ public class Knight {
                 return true; //Checks upper left
             }
             if(((this.row - 2) == endRow && this.col - 1 == endCol)){
-                return true; //Checks top left
+                return true; //Checks TOP LEFT
             }
             if(((this.row - 1) == endRow && this.col + 2 == endCol)){
-                return true; //Checks top right
+                return true; //Checks upper right
             }
             if(((this.row + 2) == endRow && this.col + 1 == endCol)){
-                return true; //Checks mid right
+                return true; //Checks BOTTOM right
             }
             if(((this.row + 1) == endRow && this.col + 2 == endCol)){
-                return true; //Checks bottom right
+                return true; //Checks lower right
             }
+            if(((this.row -2 ) == endRow && this.col + 1 == endCol)){
+                return true; //Checks TOP right
         }
         return false;
     
