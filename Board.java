@@ -68,15 +68,16 @@ public class Board {
     // the fully constructed String.
     //How do i do this???
     public String toString() {
-        String board_string= " 0 1 2 3 4 5 6 7 " + "\n";
-        for(int i = 0; i <= 7; i++){
-            board_string += Integer.toString(i) + "|"; //the Integer.toString(i) converts the integer into a string
-            for(int j = 0; i <= 7; j++){
-                board_string += board[i][j].getCharacter() + "|";
+        String map = "Board: " + "\n" + "0 1 2 3 4 5 6 7" + "\n";
+        for(int i=0; i<= 7; i++){
+            map += Integer.toString(i) + "|";
+            for(int j=0; j<=7; j++){
+                if(!board[i][j].equals(null)){
+                    map += board[i][j].getCharacter() + "|";
+                }
             }
-        
-        return board_string;
         }
+        return map;
     }
 
 
