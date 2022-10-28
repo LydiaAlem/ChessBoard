@@ -109,6 +109,57 @@ public class Piece {
     public String toString() {
         return "" + this.character;
     }
-
+    public boolean pawnPromotion(){
+        if(this.character == '\u2659'){
+            if(this.isBlack == true && this.row == 7){
+                Scanner input = new Scanner(System.in);
+                System.out.print("Congrats you reached the opposite side! You can now promot your pawn. What would you like to me?\nExamples: Rook, Queen, Bishop, Knight");
+                String in = input.next();
+                if(in == "Rook"){//Rook
+                    char new_pawn = '\u2656';
+                    this.character = new_pawn;
+                }
+                if(in == "Queen"){
+                    char new_pawn = '\u2655';
+                    this.character = new_pawn;
+                }
+                if(in == "Knight"){
+                    char new_pawn = '\u265e';
+                    this.character = new_pawn;
+                }
+                if(in == "Bishop"){
+                    char new_pawn = '\u265d';
+                    this.character = new_pawn;
+                }
+                input.close();
+                return true;
+            }
+        }
+        if(this.character == '\u265f'){
+            if(this.isBlack == false || this.row == 0){
+                Scanner input = new Scanner(System.in);
+                System.out.print("Congrats you reached the opposite side! You can now promot your pawn. What would you like to me?\nExamples: Rook, Queen, Bishop, Knight");
+                String in = input.next();
+                if(in == "Rook"){//Rook
+                    char new_pawn = '\u265c';
+                    this.character = new_pawn;
+                }
+                if(in == "Queen"){
+                    char new_pawn = '\u265a';
+                    this.character = new_pawn;
+                }
+                if(in == "Knight"){
+                    char new_pawn = '\u2658';
+                    this.character = new_pawn;
+                }
+                if(in == "Bishop"){
+                    char new_pawn = '\u2657';
+                    this.character = new_pawn;
+                }
+                input.close();
+            }
+        }
+        return false;
+    }
 
 }
