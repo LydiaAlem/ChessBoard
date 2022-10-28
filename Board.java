@@ -30,17 +30,13 @@ public class Board {
     // Moves a Piece object from one cell in the board to another, provided that
     // this movement is legal. Returns a boolean to signify success or failure.
     public boolean movePiece(int startRow, int startCol, int endRow, int endCol) {
-
-        
-        if(board[startRow][startCol].verifySourceAndDestination(startRow, startCol, endRow, endCol, board[startRow][startCol].getIsBlack())){
-            if(board[endRow][endRow].isMoveLegal(this,endRow,endCol)) { 
-                board[endRow][endCol]= board[startRow][startCol];
-                board[endRow][endCol].setPosition(endRow, endCol);
-                board[startRow][startCol] = (null);
-                return true;
-            }
-     }
-    return false;
+        if (this.board[startRow][endRow] != null && this.getPiece(startRow, startCol).isMoveLegal(this, endRow, endCol)) {
+            board[endRow][endCol] = board[startRow][startCol];
+            board[endRow][endCol].setPosition(endRow, endCol);
+            board[startRow][startCol] = (null);
+            return true;
+        }
+        return false;
     }
 
     //TODO:
@@ -156,24 +152,19 @@ public class Board {
     // - All spaces directly between 'start' and 'end' are empty, i.e., null.
     public boolean verifyHorizontal(int startRow, int startCol, int endRow, int endCol) {
         for(int i = 0; i <= startRow; i++){
-            for(int j= 0; j <= startCol; j++){
-                if((board[startRow + i][startCol]) == (board[endRow][endCol]) || (board[startRow - i][startCol] == (board[endRow][endCol]))){
+                if((board[startRow][startCol + i]) != null || (board[startRow][startCol - i] != null)){
                     return true;
                 }
             }
-        }
     return false; 
     }
 
     // - All spaces directly between 'start' and 'end' are empty, i.e., null.
     public boolean verifyVertical(int startRow, int startCol, int endRow, int endCol) {
-        for(int i = 0; i <= startRow; i++){
-            for(int j= 0; j <= startCol; j++){
-                if((board[startRow][startCol + i]) == (board[endRow][endCol])|| (board[startRow][startCol - i] == (board[endRow][endCol]))){
-                    return true;
-                }
-               
-            }
+        for(int i = 0; i < endRow; i++){
+            if((board[startRow + i][startCol]) != null|| (board[startRow - i][startCol] != null)){
+                return true;
+            }   
         }
         return false;
     }
