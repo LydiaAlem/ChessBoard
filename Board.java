@@ -160,8 +160,8 @@ public class Board {
     return false; 
     }
     // - All spaces directly between 'start' and 'end' are empty, i.e., null.
-     public boolean verifyVertical(int startRow, int startCol, int endRow, int endCol) {
-        for(int i = 0; i < endCol; i++){
+    public boolean verifyVertical(int startRow, int startCol, int endRow, int endCol) {
+        for(int i = 0; i < startCol; i++){
             if((board[endRow + i][endCol]) != null|| (board[endRow - i][endCol] != null)){
                 return true;
             }   
