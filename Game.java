@@ -1,5 +1,6 @@
 public static void main(String[] args) {
         Board gameBoard = new Board();
+        boolean isBlack = false;
         Fen.load("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR", gameBoard);
         System.out.print(gameBoard.toString());
         while(gameBoard.isGameOver() == false){
@@ -18,32 +19,29 @@ public static void main(String[] args) {
                 endRow = input.nextInt();
                 endCol = input.nextInt();
                 input1.close();
+                gameBoard.movePiece(startRow, startCol, endRow, endCol);
             }
-            isBlack != isBlack;
-            //Calling the board class
-            gameBoard.movePiece(startRow, startCol, endRow, endCol);
-            //Calling movePiece from the board class
+            isBlack = !isBlack;
+            if(isBlack == false){
+                System.out.println("It's now whites turn.");
+                // Scanner input2 = new Scanner(System.in);
+                // System.out.print("What is your move? (format: [startRow][startCol][endRow][endCol]: ");
+                // startRow = input.nextInt();
+                // startCol = input.nextInt();
+                // endRow = input.nextInt();
+                // endCol = input.nextInt();
+                // input2.close();
+                // gameBoard.movePiece(startRow, startCol, endRow, endCol);
+            }else{
+                System.out.println("It's not black's turn.");
+                // Scanner input3 = new Scanner(System.in);
+                // System.out.print("What is your move? (format: [startRow][startCol][endRow][endCol]: ");
+                // startRow = input.nextInt();
+                // startCol = input.nextInt();
+                // endRow = input.nextInt();
+                // endCol = input.nextInt();
+                // input3.close();
+                // gameBoard.movePiece(startRow, startCol, endRow, endCol);
+            }
             input.close();
-            //if(gameBoard[])
-        }
-        // if(gameBoard.getPiece(row, col) == '\u2659'){
-        //     gameBoard.getPiece().promotion();
-        // }
-        // public boolean check_piece(){
-        //     if(gameBoard.getPiece(row, col).equals('\u2659')){
-        //         gameBoard.getPiece(row, col).promotion();
-        //         return true;
-        //     }
-        //     if(gameBoard.getPiece(row, col).equals( '\u265f')){
-        //         gameBoard.getPiece(row, col).promotion();
-        //         return true;
-        //     }
-        
-        //         // gameBoard.getPiece() == '\u265f'
-        // return false;
-        // }
-
-        // String color = " ";
-        
-    }
-}
+        } 
