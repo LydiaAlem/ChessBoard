@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 public class Piece {
 
     // Instance variables
@@ -73,6 +73,7 @@ public class Piece {
     public void setPosition(int row, int col) {
         this.row = row;
         this.col = col;
+        
     }
 
     /**
@@ -111,10 +112,10 @@ public class Piece {
     }
     public boolean pawnPromotion(){
         if(this.character == '\u2659'){
-            if(this.isBlack == true && this.row == 7){
+            if(this.row == 0){
                 Scanner input = new Scanner(System.in);
-                System.out.print("Congrats you reached the opposite side! You can now promot your pawn. What would you like to me?\nExamples: Rook, Queen, Bishop, Knight");
-                String in = input.next();
+                System.out.println("Congrats you reached the opposite side! You can now promot your pawn. What would you like to me? Examples: Rook, Queen, Bishop, Knight:\n");
+                String in = input.nextLine();
                 if(in == "Rook"){//Rook
                     char new_pawn = '\u2656';
                     this.character = new_pawn;
@@ -136,10 +137,10 @@ public class Piece {
             }
         }
         if(this.character == '\u265f'){
-            if(this.isBlack == false || this.row == 0){
+            if(this.row == 7){
                 Scanner input = new Scanner(System.in);
-                System.out.print("Congrats you reached the opposite side! You can now promot your pawn. What would you like to me?\nExamples: Rook, Queen, Bishop, Knight");
-                String in = input.next();
+                System.out.println("Congrats you reached the opposite side! You can now promot your pawn. What would you like to me? Examples: Rook, Queen, Bishop, Knight:\n");
+                String in = input.nextLine();
                 if(in == "Rook"){//Rook
                     char new_pawn = '\u265c';
                     this.character = new_pawn;
