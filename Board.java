@@ -68,16 +68,21 @@ public class Board {
     // the fully constructed String.
     //How do i do this???
     public String toString() {
-        String map = "Board: " + "\n" + "0 1 2 3 4 5 6 7" + "\n";
+        String map = "Board: " + "\n" + " 0 1 2 3 4 5 6 7" + "\n";
         for(int i=0; i<= 7; i++){
             map += Integer.toString(i) + "|";
             for(int j=0; j<=7; j++){
-                if(!board[i][j].equals(null)){
-                    map += board[i][j].getCharacter() + "|";
+                if(board[i][j] != (null)){ // ASK OH
+                    System.out.print('k');
+                    map += board[i][j].getCharacter() + "|"; 
+                }
+                else{
+                    map += " |";
                 }
             }
+            map += "\n";
         }
-        return map;
+            return map;
     }
 
 
