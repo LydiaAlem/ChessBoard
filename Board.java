@@ -150,37 +150,37 @@ public class Board {
     }
 
     // - All spaces directly between 'start' and 'end' are empty, i.e., null.
-    public boolean verifyHorizontal(int startRow, int startCol, int endRow, int endCol) {
+     public boolean verifyHorizontal(int startRow, int startCol, int endRow, int endCol) {
         for(int i = 0; i <= startRow; i++){
-                if((board[startRow][startCol + i]) != null || (board[startRow][startCol - i] != null)){
+                if((board[endRow][endCol + i]) != null || (board[endRow][endCol - i] != null)){
                     return true;
                 }
             }
         
     return false; 
     }
-
     // - All spaces directly between 'start' and 'end' are empty, i.e., null.
-    public boolean verifyVertical(int startRow, int startCol, int endRow, int endCol) {
-        for(int i = 0; i < endRow; i++){
-            if((board[startRow + i][startCol]) != null|| (board[startRow - i][startCol] != null)){
+     public boolean verifyVertical(int startRow, int startCol, int endRow, int endCol) {
+        for(int i = 0; i < endCol; i++){
+            if((board[endRow + i][endCol]) != null|| (board[endRow - i][endCol] != null)){
                 return true;
             }   
         }
+        
         return false;
     }
     
     // - All spaces directly between 'start' and 'end' are empty, i.e., null.
     public boolean verifyDiagonal(int startRow, int startCol, int endRow, int endCol) {
-        for(int i = 0; i <= startRow;i++){
-            for(int j= 0; j <= startCol; j++){
-                if((board[startRow + i][startCol + i]).equals(board[endRow][endCol])|| (board[startRow + i][startCol + i].equals(board[endRow][endCol]))){
-                    return true;
-                }
+        for(int i = 0; i < endCol;i++){
+            if((board[endRow + i][endCol + i]) != null|| (board[endRow - i][endCol - i] != null)|| (board[endRow + i][endCol - i] != null) || (board[endRow - i][endCol + i] != null)){
+                return true;
             }
+        
         }
     return false;
     }
+}
 }
     
 
