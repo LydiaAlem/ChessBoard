@@ -16,13 +16,12 @@ public class Game {
             array[i] = input.nextInt();
         }
 
-        System.out.println("Array: " + Arrays.toString(array));
-        
-        //Grabbing the indexes from the array[]
-        int startRow = array[0];
-        int startCol = array[1];
-        int endRow = array[2];
-        int endCol = array[3];
+        Scanner input = new Scanner(System.in);
+        System.out.print("What is your move? (format: [startRow][startCol][endRow][endCol]: ");
+        int startRow = input.nextInt();
+        int startCol = input.nextInt();
+        int endRow = input.nextInt();
+        int endCol = input.nextInt();
 
         //Calling the board class
         Board myBoard = new Board();
