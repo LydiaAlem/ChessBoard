@@ -2,14 +2,12 @@ Lydia Alem, ALEM0046
 Bilese Dinsa, DINSA004
 
 How to compile/run the program:
-// javac Game.java
-// java Game
-//
+- javac Game.java
+- java Game
 
 Contributions:
-// Lydia and I split some methods, but a majority was completed together.
-//
-//
+- Lydia and I split some methods, but a majority was completed together.
+
 
 
 “I certify that the information contained in this README
