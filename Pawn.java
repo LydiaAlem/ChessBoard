@@ -52,4 +52,4 @@ public class Pawn {
     private boolean isBlack;
 
 }
-
+ 
