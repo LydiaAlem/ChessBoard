@@ -36,8 +36,8 @@ public class Knight {
             }
             if(((this.row -2 ) == endRow && this.col + 1 == endCol)){
                 return true; //Checks TOP right
+            }
         }
         return false;
-    
     }
 }
