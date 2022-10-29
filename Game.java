@@ -1,19 +1,15 @@
 import java.util.Scanner;
 public class Game {
     public static void main(String[] args) {
-    
-        //Testing board:
+   
         Board gameBoard = new Board();
         boolean isBlack = false;
         Fen.load("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR", gameBoard);
         System.out.println(gameBoard.toString());
         Scanner input = new Scanner(System.in);
 
-        while(gameBoard.isGameOver() == false){
-            //implement all methods for game to work
-
-            //CHECKS WHO'S TURN IT IS
-            isBlack = !isBlack;                 
+        while(gameBoard.isGameOver() == false){ //implement all methods for game to work
+            isBlack = !isBlack;//CHECKS WHO'S TURN IT IS             
             if(isBlack == false){
                 System.out.println("\nIt's now white's turn.");
             }else{
@@ -39,6 +35,3 @@ public class Game {
         input.close();
     }
 }
-        
-
-
