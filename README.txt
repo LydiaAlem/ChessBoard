@@ -5,6 +5,9 @@ How to compile/run the program:
 - javac Game.java
 - java Game
 
+Assumptions
+- We are assuming that the classes given like Piece and Pawn to work accurately when implemented into our code.
+
 Contributions:
 - Lydia and I split some methods, but a majority was completed together.
 
