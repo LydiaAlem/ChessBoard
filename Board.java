@@ -14,9 +14,11 @@ public class Board {
     }
 
     public boolean movePiece(int startRow, int startCol, int endRow, int endCol) {
-        if (this.board[startRow][startCol] != null && this.board[startRow][startCol].isMoveLegal(this, endRow, endCol)) {
+        boolean bool = startRow >= 0 && startCol >= 0 && startRow < 8 && startCol < 8 && endRow >= 0 && endCol >= 0 && endRow < 8 && endCol <8; //Making sure user input is IN BOUNDS
+        if (bool && this.board[startRow][startCol] != (null) && this.board[startRow][startCol].isMoveLegal(this, endRow, endCol)) {
             board[endRow][endCol] = board[startRow][startCol];
             board[endRow][endCol].setPosition(endRow, endCol);
+            board[endRow][endCol].pawnPromotion();
             board[startRow][startCol] = null;
             return true;
         }
@@ -24,7 +26,6 @@ public class Board {
     }
 
     public boolean isGameOver() {
-
         int counter = 0;
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
@@ -38,15 +39,27 @@ public class Board {
         }
         return false;
     }
+    public boolean check_winner(){
+        for(int i = 0; i< board.length; i++){
+            for(int j = 0; j<board[i].length;j++){
+                if(board[i][j] != null){
+                    if(board[i][j].getCharacter() == '\u265a'){
+                        System.out.println("Game over... \n Congrats! \n Black has won");
+                        return true;
+                    }
+                }
+            }
+        }
+        System.out.println("Game over... \nCongrats! \nWhite has won");
+        return false;
+    }
 
     public String toString() {
         String map = "Board: " + "\n" + "   0 1 2 3 4 5 6 7 " + "\n";
         for(int i=0; i<= 7; i++){
             map += Integer.toString(i) + " |";
             for(int j=0; j<=7; j++){
-                //System.out.print(board[i][j]);
-                if(board[i][j] != (null)){ // ASK OH
-                    //System.out.print('k');
+                if(board[i][j] != (null)){ 
                     map += board[i][j].getCharacter() + "|" ; 
                 }
                 else{
@@ -68,9 +81,9 @@ public class Board {
 
     public boolean verifySourceAndDestination(int startRow, int startCol, int endRow, int endCol, boolean isBlack) {
         if(startRow <= 7 && startCol <= 7 && endRow <= 7 & endCol <= 7){ //Checks bounds check if greater than or equal to 0
-            if(board[startRow][startCol].equals(null)){  //Checks empty piece
+            if(board[startRow][startCol] != null){  //Checks empty piece
                     if(board[startRow][startCol].getIsBlack() == isBlack){ //checks if oponents piece is black
-                        if(board[endRow][endCol].equals(null) || board[endRow][endCol].getIsBlack() != isBlack){
+                        if(board[endRow][endCol] == (null) || board[endRow][endCol].getIsBlack() != isBlack){
                             return true;
                         }
                     }
@@ -79,67 +92,48 @@ public class Board {
         return false;
     }
     public boolean verifyAdjacent(int startRow, int startCol, int endRow, int endCol) {
-
-        
-        if(board[startRow][startCol + 1] == (board[endRow][endCol])){ //Check right
-            return true;
-        } 
-
-        else if(board[startRow + 1][startCol + 1] == (board[endRow][endCol])){ //Checks bottom right corner
+        if(endRow - startRow == -1|| endRow - startRow == 1){ //checks top and bottom
             return true;
         }
-
-        else if(board[startRow - 1][startCol] == (board[endRow][endCol])) {//checks right
-            return true; 
-        }
-
-        else if(board[startRow -1][startCol -1] == (board[endRow][endCol])){ //checks upper left corner
+        if(endCol - startCol == -1|| endCol - startCol == 1){ //checks sides
             return true;
         }
-
-        else if(board[startRow][startCol - 1] == (board[endRow][endCol])){ //checks ABOVE pieve
+        if(endRow - startRow == -1|| endRow - startRow == 1){ //checks top and bottom
             return true;
         }
-
-        else if(board[startRow-1][startCol+1] == (board[endRow][endCol])){ //checks bottem left corner
+        if(Math.abs(endRow-startRow) == Math.abs(endCol-startCol)){// checks diagonal
             return true;
         }
-
-        else if(board[startRow+1][startCol - 1] == (board[endRow][endCol])){ //checks upper right corner
-            return true;
-        }
-
-        else if(board[startRow +1][startCol] == (board[endRow][endCol])){ //checks left
-            return true;
-        }
-
         else {
             return false;
         }
     }
 
     public boolean verifyHorizontal(int startRow, int startCol, int endRow, int endCol) {
-        for(int i = 0; i < board.length; i++){
+        if(startRow == endRow){
+            for(int i = 0; i <= endCol; i++){
                 if((board[endRow][endCol + i]) != null || (board[endRow][endCol - i] != null)){
                     return true;
                 }
             }
-        
-    return false; 
+        }
+    return false;
     }
 
     public boolean verifyVertical(int startRow, int startCol, int endRow, int endCol) {
-        for(int i = 0; i < board.length; i++){
+        if (startCol == endCol){
+        for(int i = 0; i <= endRow; i++){
             if((board[endRow + i][endCol]) != null|| (board[endRow - i][endCol] != null)){
                 return true;
             }   
         }
+    }
         return false;
     }
 
     public boolean verifyDiagonal(int startRow, int startCol, int endRow, int endCol) {
-        for(int i = 0; i < board.length;i++){
-            for(int j = 0; j< board.length; j++){
+        for(int i = 0; i <= board.length;i++){
+            for(int j = 0; j< board[i].length; j++){
             if((board[endRow + j][endCol + i]) != null || (board[endRow + j][endCol - i] != null) || (board[endRow - j][endCol + i] != null) || (board[endRow - j][endCol - i]) != null){
                 return true;
             } 
