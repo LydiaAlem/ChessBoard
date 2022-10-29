@@ -114,9 +114,9 @@ public class Piece {
         if(this.character == '\u2659'){
             if(this.row == 0){
                 Scanner input = new Scanner(System.in);
-                System.out.println("Congrats you reached the opposite side! You can now promot your pawn. What would you like to me? Examples: Rook, Queen, Bishop, Knight:\n");
-                String in = input.nextLine();
-                if(in == "Rook"){//Rook
+                System.out.println("Congrats you reached the opposite side! You can now promot your pawn. What would you like to me? Examples: Rook, Queen, Bishop, Knight: ");
+                String in = input.next();
+                if(in == "Rook"){
                     char new_pawn = '\u2656';
                     this.character = new_pawn;
                 }
@@ -141,7 +141,7 @@ public class Piece {
                 Scanner input = new Scanner(System.in);
                 System.out.println("Congrats you reached the opposite side! You can now promot your pawn. What would you like to me? Examples: Rook, Queen, Bishop, Knight:\n");
                 String in = input.nextLine();
-                if(in == "Rook"){//Rook
+                if(in == "Rook"){
                     char new_pawn = '\u265c';
                     this.character = new_pawn;
                 }
@@ -156,6 +156,7 @@ public class Piece {
                 if(in == "Bishop"){
                     char new_pawn = '\u2657';
                     this.character = new_pawn;
+
                 }
                 input.close();
             }
