@@ -13,10 +13,10 @@ public class Rook {
 
     public boolean isMoveLegal(Board board, int endRow, int endCol){
         if(board.verifySourceAndDestination(this.row, this.col, endRow, endCol, this.isBlack)){
-            return(board.verifyHorizontal(this.row, this.col, endRow, endCol)|| board.verifyVertical(this.row, this.col, endRow, endCol));
+            if(board.verifyHorizontal(this.row, this.col, endRow, endCol) || board.verifyVertical(this.row, this.col, endRow, endCol)){
+                return true;
+            }
         }
-        else{
-            return false;
-        }
+        return false;
     }
 }
