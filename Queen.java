@@ -13,9 +13,10 @@ public class Queen {
 
     public boolean isMoveLegal(Board board, int endRow, int endCol){
         if(board.verifySourceAndDestination(this.row, this.col, endRow, endCol, isBlack)){
-            return(board.verifyDiagonal(this.row, this.col, endRow, endCol));
+            return(board.verifyDiagonal(this.row, this.col, endRow, endCol)); // add verify horizontal and vertical as well
         }
         return false;
     }
 }
+
 
