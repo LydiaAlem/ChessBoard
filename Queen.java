@@ -10,10 +10,10 @@ public class Queen {
         this.col = col;
         this.isBlack = isBlack;
     }
-
+//Verifies if the move is both legal, verified, and diagonal
     public boolean isMoveLegal(Board board, int endRow, int endCol){
         if(board.verifySourceAndDestination(this.row, this.col, endRow, endCol, isBlack)){
-            return(board.verifyDiagonal(this.row, this.col, endRow, endCol)); // add verify horizontal and vertical as well
+            return(board.verifyDiagonal(this.row, this.col, endRow, endCol)); 
         }
         return false;
     }
