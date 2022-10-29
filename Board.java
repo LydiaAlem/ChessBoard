@@ -25,9 +25,9 @@ public class Board {
         return false;
     }
 
-    public boolean isGameOver() {
+    public boolean isGameOver() { // checks when game is over by checking if there is 2 kings.
         int counter = 0;
-        for(int i = 0; i < board.length; i++){
+        for(int i = 0; i < board.length; i++){ 
             for(int j = 0; j < board[i].length; j++){
                 if(board[i][j] != null && (board[i][j].getCharacter() == '\u2654' || board[i][j].getCharacter() == '\u265a')) {
                     counter = counter + 1;
@@ -39,7 +39,7 @@ public class Board {
         }
         return false;
     }
-    public boolean check_winner(){
+    public boolean check_winner(){ // checks winner by finding the king that's left and the coorisponding color wins
         for(int i = 0; i< board.length; i++){
             for(int j = 0; j<board[i].length;j++){
                 if(board[i][j] != null){
@@ -54,7 +54,7 @@ public class Board {
         return false;
     }
 
-    public String toString() {
+    public String toString() {//Presents board and converts the numbers into strings
         String map = "Board: " + "\n" + "   0 1 2 3 4 5 6 7 " + "\n";
         for(int i=0; i<= 7; i++){
             map += Integer.toString(i) + " |";
