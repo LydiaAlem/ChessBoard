@@ -1,5 +1,4 @@
 public class Bishop {
-    public class Bishop {
     //Instance variables
     private int row;
     private int col;
@@ -14,9 +13,13 @@ public class Bishop {
     //Begins by checking if the move is legal & if the endRow and endCol are being placed in a verified source
     //Then return true if endCol and endRow are being moved DIAGONALLY
     public boolean isMoveLegal(Board board, int endRow, int endCol){
-        if(board.verifySourceAndDestination(this.row, this.col, endRow, endCol, isBlack){
-            return(board.verifyDiagonal(this.row, this.col, endRow, endCol));
+        //Case 1: Move to the empty ADJACENT square
+        if(board.verifySourceAndDestination(this.row,this.col, endRow, endCol, isBlack)){
+            if(board.verifyDiagonal(this.row,this.col, endRow, endCol)){
+                return true;
+            }
         }
+    return false;
     }
     
 }
